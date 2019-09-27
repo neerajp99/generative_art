@@ -1,0 +1,23 @@
+{
+  "name": "generative_art",
+  "version": "1.0.0",
+  "description": "Experiment with generative Art using webgl, canvas-cli and openframeworks",
+  "main": "sketch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neerajp99/generative_art.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neerajp99/generative_art/issues"
+  },
+  "homepage": "https://github.com/neerajp99/generative_art#readme",
+  "dependencies": {
+    "canvas-sketch": "^0.6.1"
+  }
+}
