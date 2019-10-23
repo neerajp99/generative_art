@@ -8,7 +8,8 @@ const settings = {
 };
 
 const sketch = () => {
-  const palette = random.pick(palettes);
+  const colorCount = random.rangeFloor(1, 6)
+  const palette = random.shuffle(random.pick(palettes)).slice(0, colorCount );
   console.log(palette);
 
   const createGrid = () => {
@@ -20,7 +21,7 @@ const sketch = () => {
         const u = x / (count - 1);
         const v = y / (count - 1);
         points.push({
-          radius: Math.abs(random.gaussian() * 0.01),
+          radius: Math.abs(random.gaussian() * 0.012),
           position: [u, v],
           color: random.pick(palette)
         });
@@ -48,7 +49,7 @@ const sketch = () => {
       const x = lerp(margin, width - margin, u);
       const y = lerp(margin, height - margin, v);
       context.beginPath();
-      context.arc(x, y, 20, Math.PI * 2, false);
+      context.arc(x, y, radius * width, Math.PI * 2, false);
       context.fillStyle = color;
       context.fill();
       context.strokeStyle = color;
