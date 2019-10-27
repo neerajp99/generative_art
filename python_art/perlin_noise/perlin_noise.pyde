@@ -17,7 +17,7 @@ def draw():
     center_x = width / 2
     center_y = height / 2
     
-    global TOTAL_DEGREES, radius
+    # global TOTAL_DEGREES, radius
     
     
     beginShape()
@@ -30,7 +30,8 @@ def draw():
         # ellipse(x, y, 45, 45)
         
     endShape(CLOSE)
-    radius -= 1
+    
+    radius -= 2
     
     if (radius == 0 ):
         noLoop()
