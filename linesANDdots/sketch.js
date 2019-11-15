@@ -52,8 +52,8 @@ const sketch = () => {
 
   const points = getPoints();
   const points2 = getCircles().filter(() => random.value() > 0.994);
-  const palette = ["#d2caad", "#70726f"];
-  const pallett = random.pick(palette);
+  const palette = ["#e8dbaa", "#4c5c75"];
+
 
   console.log(points2);
   const margin = 9;
@@ -133,12 +133,12 @@ const sketch = () => {
     points2.forEach((data, index) => {
       const { positionNew } = data;
       const [u, v] = positionNew;
-      const x = lerp(15, width - margin, u);
+      const x = lerp(14, width - margin, u);
       const y = lerp(15, width - margin, v);
       if (index / 2 !== 0) {
         context.beginPath();
         context.arc(x, y, 0.03, Math.PI * 2, false);
-        context.fillStyle = pallett;
+        context.fillStyle = random.pick(palette);
         context.fill();
       }
     });
