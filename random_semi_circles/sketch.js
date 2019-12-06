@@ -13,7 +13,7 @@ const sketch = () => {
   console.log(palette);
   const getPoints = () => {
     const points = [];
-    const count = 10;
+    const count = 30;
     for (let i = 0; i < count; i++) {
       for (let j = 0; j < count; j++) {
         const u = i / (count - 1);
@@ -30,12 +30,12 @@ const sketch = () => {
 
   const points = getPoints();
   console.log(points);
-  const margin = 150;
+  const margin = 100;
 
   return ({ context, width, height }) => {
     context.fillStyle = "white";
     context.fillRect(0, 0, width, height);
-    context.globalAlpha = 0.5;
+    context.globalAlpha = 0.6;
 
     // console.log(a, b, c, d);
     //
@@ -45,6 +45,10 @@ const sketch = () => {
       const [u, v] = position;
       const x = lerp(margin, width - margin, u);
       const y = lerp(margin, height - margin, v);
+      const colorCounts = random.rangeFloor(1, 10);
+      const palett = random
+        .shuffle(random.pick(palettes))
+        .slice(0, colorCounts);
 
       // context.beginPath();
       // context.globalAlpha = 0.7
@@ -55,27 +59,36 @@ const sketch = () => {
       // context.lineWidth = 5;
       // context.stroke();
 
-      let a = random.range(0, 0.5);
-      let b = random.range(a, 1.5);
-      const c = random.range(a, a + 1);
-      const d = random.range(b, b + 1);
-      const k = random.range(30, 50)
+      let a = random.range(0, 0.6);
+      let b = random.range(a + 0.4, 1.3);
+
+      let c = random.range(a, b);
+      if (c - a < 0.2) {
+        c += 0.1;
+      }
+      if (c + 1 < b) {
+        c += b + 0.1;
+      }
+      const news = ["#599b52", "#0625d9", "#f93d01"];
+      const l = random.shuffle(news);
+      // const d = random.range(c, b + 1);
+      const k = random.range(15, 30);
       context.beginPath();
       context.arc(x, y, k, a * Math.PI, b * Math.PI);
-      context.fillStyle = random.pick(color);
+      context.fillStyle = l[0];
       context.fill();
       context.beginPath();
       context.arc(x, y, k, b * Math.PI, a * Math.PI);
-      context.fillStyle = random.pick(color);
+      context.fillStyle = l[1];
       context.fill();
       context.beginPath();
-      context.arc(x, y, k, c * Math.PI, d * Math.PI);
-      context.fillStyle = random.pick(color);
+      context.arc(x, y, k, c * Math.PI, (c + 1) * Math.PI);
+      context.fillStyle = l[2];
       context.fill();
-      context.beginPath();
-      context.arc(x, y, k, d * Math.PI, c * Math.PI);
-      context.fillStyle = random.pick(color);
-      context.fill();
+      // context.beginPath();
+      // context.arc(x, y, k, (c+0.7) * Math.PI, c * Math.PI);
+      // context.fillStyle = "red";
+      // context.fill();
     });
   };
 };
