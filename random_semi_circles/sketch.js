@@ -13,7 +13,7 @@ const sketch = () => {
   console.log(palette);
   const getPoints = () => {
     const points = [];
-    const count = 30;
+    const count = 100;
     for (let i = 0; i < count; i++) {
       for (let j = 0; j < count; j++) {
         const u = i / (count - 1);
@@ -30,7 +30,7 @@ const sketch = () => {
 
   const points = getPoints();
   console.log(points);
-  const margin = 100;
+  const margin = 50;
 
   return ({ context, width, height }) => {
     context.fillStyle = "white";
@@ -72,7 +72,7 @@ const sketch = () => {
       const news = ["#599b52", "#0625d9", "#f93d01"];
       const l = random.shuffle(news);
       // const d = random.range(c, b + 1);
-      const k = random.range(15, 30);
+      const k = random.range(5, 10);
       context.beginPath();
       context.arc(x, y, k, a * Math.PI, b * Math.PI);
       context.fillStyle = l[0];
