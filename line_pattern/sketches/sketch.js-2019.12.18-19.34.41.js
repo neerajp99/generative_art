@@ -1,5 +1,6 @@
 const canvasSketch = require("canvas-sketch");
 const random = require("canvas-sketch-util/random");
+const palettes = require("nice-color-palettes");
 
 const settings = {
   dimensions: "A4",
@@ -20,7 +21,7 @@ const sketch = () => {
   return ({ context, width, height }) => {
     // console.log(height);
 
-    context.fillStyle = "white";
+    context.fillStyle = "#333";
     context.fillRect(0, 0, width, height);
 
     // Begin drawing the lines
@@ -60,6 +61,12 @@ const sketch = () => {
       // console.log(i)
       let rectangles = 0;
       for (let j = 0; j < column_array[i].length - 1; j++) {
+        const colorCount = random.rangeFloor(1, 60);
+        const palette = random
+          .shuffle(random.pick(palettes))
+          .slice(0, colorCount);
+        const p = random.pick(palette);
+        console.log(palette);
         context.beginPath();
         context.fillRect(
           margin + i * 8.8,
@@ -68,7 +75,7 @@ const sketch = () => {
           column_array[i][j]
         );
         console.log(margin + rectangles + i);
-        context.fillStyle = "#333";
+        context.fillStyle = p;
         context.fill();
         rectangles += column_array[i][j];
       }
