@@ -21,7 +21,7 @@ const sketch = () => {
   return ({ context, width, height }) => {
     // console.log(height);
 
-    context.fillStyle = "#333";
+    context.fillStyle = "#04383f";
     context.fillRect(0, 0, width, height);
 
     // Begin drawing the lines
@@ -67,17 +67,20 @@ const sketch = () => {
           .slice(0, colorCount);
         const p = random.pick(palette);
         console.log(palette);
+        // if (random.range(0,2) > 0.3){
+
         context.beginPath();
         context.fillRect(
           margin + i * 8.8,
           margin + rectangles + j * 5,
-          2,
+          3,
           column_array[i][j]
         );
         console.log(margin + rectangles + i);
         context.fillStyle = p;
         context.fill();
         rectangles += column_array[i][j];
+        // }
       }
     }
   };
