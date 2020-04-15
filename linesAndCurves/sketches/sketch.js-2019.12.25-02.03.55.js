@@ -78,7 +78,7 @@ const sketch = () => {
 
   return ({ context, width, height }) => {
     console.log(width);
-    context.fillStyle = "#333";
+    context.fillStyle = "#04383f";
     context.fillRect(0, 0, width, height);
     context.beginPath();
     context.setLineDash([0]);
