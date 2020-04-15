@@ -91,7 +91,7 @@ const sketch = () => {
       context.beginPath();
       context.globalAlpha = random.range(0, 0.2);
       context.rect(x, height, 0.08, -(randomPoints * 11));
-      context.fillStyle = "#3c404c";
+      context.fillStyle = "#202040";
       context.fill();
     });
 
@@ -103,7 +103,7 @@ const sketch = () => {
       context.beginPath();
       context.globalAlpha = random.range(0, 0.4);
       context.rect(x, height, 0.1, -(randomPoints2 * 8));
-      context.fillStyle = "#3c404c";
+      context.fillStyle = "#202040";
       context.fill();
     });
     points.forEach((data, index) => {
@@ -114,7 +114,7 @@ const sketch = () => {
       context.beginPath();
       context.globalAlpha = random.range(0, 0.2);
       context.rect(x, height, 0.05, -(randomPoints2 * 9));
-      context.fillStyle = "#3c404c";
+      context.fillStyle = "#202040";
       context.fill();
     });
     // points.forEach((data, index) => {
